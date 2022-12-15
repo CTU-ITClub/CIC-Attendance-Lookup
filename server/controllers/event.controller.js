@@ -21,7 +21,7 @@ const Event = db.event
 getAllEvent = async (req, res) => {
     try {
         const event = await Event.findAll({
-            attributes: ['id', 'name'],
+            attributes: ['id', 'name', 'description'],
         })
         if (event) {
             return res.send(event)
@@ -39,7 +39,7 @@ getAllEvent = async (req, res) => {
 }
 
 getEventById = async (req, res) => {
-    const eid = req.params.id;
+    const eid = req.params.id ? req.params.id : req.uid;
     try {
         const event = await Event.findOne({
             where: {

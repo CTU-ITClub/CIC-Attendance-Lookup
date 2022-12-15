@@ -22,7 +22,7 @@ const AType = db.atype
 const ATable = db.atable
 
 getAttendanceByUserID = async (req, res) => {
-    const uid = req.params.id
+    const uid = req.params.id ? req.params.id : req.uid
     const attendance = await ATable.findAll({
         where: {
             user_id: uid
@@ -31,15 +31,22 @@ getAttendanceByUserID = async (req, res) => {
             {
                 model: Event,
                 as: 'event'
+            },
+            {
+                model: AType,
+                as: 'atype'
             }
-        ]
+        ],
+        attributes: {
+            exclude: ['id', 'atype_id', 'event_id', 'user_id']
+        }
     })
     if (!attendance) {
         return res.status(404).send({
             message: "Rất tiếc, hệ thống chưa ghi nhận bạn đã tham gia hoạt động nào của CLB Tin học :("
         })
     }
-    return res.send(attendance)
+    return res.send({ uid, ...attendance })
 }
 
 module.exports = {

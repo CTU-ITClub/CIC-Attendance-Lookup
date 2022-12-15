@@ -16,10 +16,12 @@
 // along with CIC-Attendance-Lookup.  If not, see <http://www.gnu.org/licenses/>.
 const { getAllEvent, getEventById } = require ('../controllers/event.controller')
 const { getAttendanceByUserID } = require ('../controllers/attendance.controller')
-
+const { checkUserExist } = require ('../middleware/checkCode')
 module.exports = (app) => {
     app.get('/api/events', getAllEvent)
     app.get('/api/events/by-id/:id', getEventById)
-    app.get('/api/attendance/by-user/:id', getAttendanceByUserID)
+    // app.get('/api/attendance/by-user/:id', getAttendanceByUserID)
+    app.get('/api/attendance/by-code/:code', checkUserExist, getAttendanceByUserID)
     // app.get('/api/attendance/by-event/:id')
+    //app.post('/api/admin/add-user/')
 }
