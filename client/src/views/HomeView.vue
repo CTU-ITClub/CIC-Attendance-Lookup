@@ -6,7 +6,7 @@ const input = ref(null);
 </script>
 <template>
   <el-row justify="center">
-    <img src="../assets/octocat.gif" alt="Octocat" width="200" />
+    <img src="../assets/logo.png" alt="Octocat" width="200" />
   </el-row>
   <el-row>
     <el-input
