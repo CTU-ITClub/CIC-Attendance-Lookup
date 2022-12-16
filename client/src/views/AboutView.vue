@@ -1,8 +1,16 @@
 <template>
-  <h2>Về phần mềm</h2>
+  <h2>Về hệ thống</h2>
   <p>
-    Phần mềm <u>CIC Attendance Lookup</u> là một phần mềm dùng để kiểm tra việc
-    tham gia các hoạt động của sinh viên Trường Công nghệ thông tin và truyền
+    Hệ thống <u>CIC Attendance Lookup</u> dùng để tra cứu các hoạt động được tổ chức bởi CLB Tin học của sinh viên Trường Công nghệ thông tin và truyền
     thông - Đại học Cần Thơ
+  </p>
+  <h2>Nguồn mở</h2>
+  <p>
+    <a
+            href="https://github.com/CTU-ITClub/CIC-Attendance-Lookup"
+            target="_blank"
+          >
+            Repo trên Github
+          </a> đã lọc bỏ các <b>mã độc quyền cho việc import dữ liệu</b>, đảm bảo các thuật toán và cấu trúc vẫn là open source.
   </p>
 </template>

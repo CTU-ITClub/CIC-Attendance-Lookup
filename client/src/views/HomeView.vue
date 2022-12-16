@@ -27,7 +27,7 @@ const input = ref(null);
           {{ moment(scope.row.event.time).calendar() }}
         </template>
       </el-table-column>
-      <el-table-column label="Tham gia">
+      <el-table-column label="Đã điểm danh">
         <template #default="scope">
           <el-button
             :type="btnTypes[scope.row.atype.id]"

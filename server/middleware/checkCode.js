@@ -34,7 +34,7 @@ checkUserExist = async (req, res, next) => {
         next()
     } else {
         return res.status(404).send({
-            message: "User Not Found"
+            message: "MSSV không hợp lệ hoặc chưa tham gia sự kiện nào!"
         })
     }
 }
