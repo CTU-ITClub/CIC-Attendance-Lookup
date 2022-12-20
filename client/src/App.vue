@@ -16,6 +16,9 @@
  You should have received a copy of the GNU General Public License
  along with CIC-Attendance-Lookup.  If not, see <http://www.gnu.org/licenses/>.
 -->
+<script setup>
+import Alert from "./components/Alert.vue";
+</script>
 
 <template>
   <el-container>
@@ -36,6 +39,7 @@
       </div>
     </el-header>
     <el-main style="width: 1024px; max-width: 100%; margin: 0 auto">
+      <Alert />
       <router-view />
     </el-main>
   </el-container>
