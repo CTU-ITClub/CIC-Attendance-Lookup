@@ -22,8 +22,6 @@ const bodyParser = require('body-parser')
 require('dotenv').config()
 const PORT = process.env.PORT || 3000
 const router = require('./routes')
-const redis = require('redis')
-const apicache = require('apicache')
 const cors = require('cors')
 const corsOptions = {
 	origin: process.env.CLIENT_URL || 'http://localhost:3000',
@@ -38,10 +36,6 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
 const db = require('./models')
-
-const cache = (process.env.REDIS_USE === "true") ? apicache.options({ redisClient: redis.createClient() }).middleware : apicache.middleware
-
-app.use(cache('1 day'))
 
 app.listen(PORT, () => {
 	console.log(`Server is running on port ${PORT}.`)
